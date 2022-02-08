@@ -79,6 +79,7 @@ def getResponse(sentence, context, userID='123'):
                 # print(i['tag'])
                 # print(results[0]['intent'])
                 # find a tag matching the first result
+                print(context)
                 if not context:
                     if i['tag'] == results[0]['intent']:
                         print("matching ...")
@@ -90,6 +91,7 @@ def getResponse(sentence, context, userID='123'):
                     if i['tag'] == results[0]['intent'] and i['tag'] in context[userID]:
                         print("matching ...")
                         print(i['tag'])
+
                         # set context for this intent if necessary
                         if 'context' in i:
                             context[userID] = i['context']
