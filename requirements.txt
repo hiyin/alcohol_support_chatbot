@@ -4,3 +4,5 @@ pickle
 keras
 numpy
 tensorflow
+requests
+gunicorn
