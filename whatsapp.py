@@ -50,7 +50,7 @@ def bow(sentence, words, show_details=True):
     return (np.array(bag))
 
 
-def predict_class(sentence, model, context="{'123':['問候']}", userID='123'):
+def predict_class(sentence, model, context, userID='123'):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
@@ -62,7 +62,10 @@ def predict_class(sentence, model, context="{'123':['問候']}", userID='123'):
     return_list = []
     for r in results:
         #print(classes[r[0]])
-        if context[userID] == ['问候'] and context[userID] == classes[r[0]]:
+        if context == {}:
+            #print('hihi')
+            context[userID] = classes[r[0]]
+            #print(context[userID])
             return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
         else:
             #print('yesyes')
@@ -117,7 +120,7 @@ account = "AC45abd6b358532bbe609bdd4d57f83fc9"
 token = "3e8fc5acf8f84fe48224689554f82fb9"
 client = Client(account, token)
 
-
+context={}
 def respond(message):
     response = MessagingResponse()
     response.message(message)
