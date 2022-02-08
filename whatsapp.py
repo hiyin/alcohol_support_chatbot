@@ -4,8 +4,8 @@ from twilio.twiml.messaging_response import MessagingResponse
 from twilio.rest import Client
 
 import nltk
-nltk.download('punkt')
-nltk.download('wordnet')
+# nltk.download('punkt')
+# nltk.download('wordnet')
 
 
 from nltk.stem import WordNetLemmatizer
