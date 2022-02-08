@@ -102,8 +102,6 @@ def chatbot_response(text):
     # res = getResponse(ints, intents)
     ### New response (contextual)
     res = getResponse(text, context, userID='123')
-    if not res:
-        res = '不好意思，我沒有找到與您的回答對應的數據，請您再說一遍？'
 
     return res
 
