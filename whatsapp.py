@@ -109,8 +109,8 @@ def chatbot_response(text):
 
 
 app = Flask(__name__)
-account = "SK4f6e897a7431f03b2c466bbc1818c5c1"
-token = "SxEOuTWYRbq2m0j1roCl2osHJ7iaSZrg"
+account = "AC45abd6b358532bbe609bdd4d57f83fc9"
+token = "3e8fc5acf8f84fe48224689554f82fb9"
 client = Client(account, token)
 
 def respond(message):
