@@ -137,6 +137,8 @@ def reply():
     message = request.form.get('Body').lower()
     # greeting
     if message:
+        if message == 'end chat':
+            context = {}
         reply = chatbot_response(message)
         return respond(reply)
 
