@@ -17,7 +17,7 @@ import numpy as np
 # subprocess.run(['python', 'chatbot.py'])
 
 from keras.models import load_model
-model = load_model('Chatbot_model.h5')
+model = load_model('chatbot_model.h5')
 import json
 import random
 intents = json.loads(open('intents_cn.json').read())
@@ -109,8 +109,8 @@ def chatbot_response(text):
 
 
 app = Flask(__name__)
-account = "AC45abd6b358532bbe609bdd4d57f83fc9"
-token = "5863013ef6f4a3ed5fab20a874d1531b"
+account = "SK4f6e897a7431f03b2c466bbc1818c5c1"
+token = "SxEOuTWYRbq2m0j1roCl2osHJ7iaSZrg"
 client = Client(account, token)
 
 def respond(message):
@@ -128,4 +128,4 @@ def reply():
         return respond(reply)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(host='0.0.0.0')
