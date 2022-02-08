@@ -50,26 +50,34 @@ def bow(sentence, words, show_details=True):
     return (np.array(bag))
 
 
-def predict_class(sentence, model):
+def predict_class(sentence, model, context, userID='123'):
     # filter out predictions below a threshold
-    p = bow(sentence, words, show_details=False)
+    p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOLD = 0.25
-    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
+    print(res)
+    ERROR_THRESHOLD = 0.01
+    results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
     for r in results:
-        return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+        print(r)
+        print(classes[r[0]])
+        if not context:
+            print('hihi')
+            context[userID] = ['問候']
+            print(context[userID])
+            return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+        else:
+            print('yesyes')
+            if classes[r[0]] in context[userID]:
+                return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
     return return_list
 
 
 # New response function (contextual)
-context = {}
-
-
 def getResponse(sentence, context, userID='123'):
-    results = predict_class(sentence, model)
+    results = predict_class(sentence, model, context, userID='123')
     # print(results)
     # if we have a classification then find the matching intent tag
     if results:
@@ -113,7 +121,7 @@ account = "AC45abd6b358532bbe609bdd4d57f83fc9"
 token = "3e8fc5acf8f84fe48224689554f82fb9"
 client = Client(account, token)
 
-
+context = {}
 def respond(message):
     response = MessagingResponse()
     response.message(message)
