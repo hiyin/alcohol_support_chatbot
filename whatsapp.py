@@ -113,10 +113,15 @@ account = "AC45abd6b358532bbe609bdd4d57f83fc9"
 token = "3e8fc5acf8f84fe48224689554f82fb9"
 client = Client(account, token)
 
+
 def respond(message):
     response = MessagingResponse()
     response.message(message)
     return Response(str(response), mimetype="application/xml")
+
+@app.route("/")
+def hello():
+    return "Hello World!"
 
 @app.route('/message', methods=['POST'])
 def reply():
