@@ -64,7 +64,7 @@ def predict_class(sentence, model, context, userID='123'):
         #print(classes[r[0]])
         if context == {}:
             #print('hihi')
-            context[userID] = classes[r[0]]
+            context[userID] = ['問候']
             #print(context[userID])
             return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
         else:
@@ -135,6 +135,8 @@ def reply():
     message = request.form.get('Body').lower()
     # greeting
     if message:
+        if message == 'end':
+            context = {}
         reply = chatbot_response(message)
         return respond(reply)
 
