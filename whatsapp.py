@@ -23,7 +23,7 @@ import random
 intents = json.loads(open('intents_cn.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
-
+context={}
 
 def clean_up_sentence(sentence):
     # tokenize the pattern - split words into array
@@ -54,22 +54,21 @@ def predict_class(sentence, model, context, userID='123'):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
-    print(res)
+    #print(res)
     ERROR_THRESHOLD = 0.01
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
     for r in results:
-        print(r)
-        print(classes[r[0]])
-        if not context:
-            print('hihi')
+        #print(classes[r[0]])
+        if context == {}:
+            #print('hihi')
             context[userID] = ['問候']
-            print(context[userID])
+            #print(context[userID])
             return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
         else:
-            print('yesyes')
+            #print('yesyes')
             if classes[r[0]] in context[userID]:
                 return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
     return return_list
@@ -121,7 +120,7 @@ account = "AC45abd6b358532bbe609bdd4d57f83fc9"
 token = "3e8fc5acf8f84fe48224689554f82fb9"
 client = Client(account, token)
 
-context = {}
+
 def respond(message):
     response = MessagingResponse()
     response.message(message)
@@ -133,12 +132,9 @@ def hello():
 
 @app.route('/message', methods=['POST'])
 def reply():
-    idx = 0
     message = request.form.get('Body').lower()
     # greeting
     if message:
-        if message == 'end chat':
-            context = {}
         reply = chatbot_response(message)
         return respond(reply)
 
