@@ -65,7 +65,7 @@ def predict_class(sentence, model):
     return return_list
 
 
-context = {}
+
 # New response function (contextual)
 def getResponse(sentence, context, userID='123'):
     results = predict_class(sentence, model)
@@ -89,6 +89,7 @@ def getResponse(sentence, context, userID='123'):
                 else:
                     if i['tag'] == results[0]['intent'] and i['tag'] in context[userID]:
                         print("matching ...")
+                        print(i['tag'])
                         # set context for this intent if necessary
                         if 'context' in i:
                             context[userID] = i['context']
@@ -112,7 +113,9 @@ account = "AC45abd6b358532bbe609bdd4d57f83fc9"
 token = "3e8fc5acf8f84fe48224689554f82fb9"
 client = Client(account, token)
 
-
+context = {}
+print('printing context...')
+print(context)
 def respond(message):
     response = MessagingResponse()
     response.message(message)
