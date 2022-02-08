@@ -17,7 +17,7 @@ import numpy as np
 # subprocess.run(['python', 'chatbot.py'])
 
 from keras.models import load_model
-model = load_model('chatbot_model.h5')
+model = load_model('Chatbot_model.h5')
 import json
 import random
 intents = json.loads(open('intents_cn.json').read())
