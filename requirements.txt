@@ -2,6 +2,7 @@ flask
 nltk
 keras
 tensorflow-cpu
+twilio
 numpy
 requests
 gunicorn
