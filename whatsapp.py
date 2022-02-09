@@ -142,6 +142,8 @@ def reply():
     message = request.form.get('Body').lower()
     # greeting
     if message:
+        if message == 'restart':
+            context = {}
         reply = chatbot_response(message)
         return respond(reply)
 
