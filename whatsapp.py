@@ -4,8 +4,9 @@ from twilio.twiml.messaging_response import MessagingResponse
 from twilio.rest import Client
 
 import nltk
-# nltk.download('punkt')
-# nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 
 from nltk.stem import WordNetLemmatizer
@@ -145,4 +146,4 @@ def reply():
         return respond(reply)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=80)
