@@ -50,27 +50,39 @@ def bow(sentence, words, show_details=True):
     return (np.array(bag))
 
 
-def predict_class(sentence, model):
+def predict_class(sentence, model, context, userID='123'):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
+    #print(res)
     ERROR_THRESHOLD = 0
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
     for r in results:
-        return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
-    print(return_list)
+        #print(classes[r[0]])
+        if context == {}:
+            #print('hihi')
+            context[userID] = ['問候']
+            print(context[userID])
+            return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+        else:
+            #print('yesyes')
+            if classes[r[0]] in context[userID]:
+                context[userID] = [classes[r[0]]]
+                return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
     return return_list
 
 
 
 # New response function (contextual)
 def getResponse(sentence, context, userID='123'):
-    results = predict_class(sentence, model)
+    results = predict_class(sentence, model, context, userID='123')
     # print(results)
     # if we have a classification then find the matching intent tag
+    print("checking context ...")
+    print(context)
     if results:
         # loop as long as there are matches to process
         while results:
@@ -79,14 +91,13 @@ def getResponse(sentence, context, userID='123'):
                 # print(i['tag'])
                 # print(results[0]['intent'])
                 # find a tag matching the first result
-                print("checking context ...")
-                print(context)
                 if not context:
                     if i['tag'] == results[0]['intent']:
                         print("matching ...")
                         # set context for this intent if necessary
                         if 'context' in i:
                             context[userID] = i['context']
+                            print(context)
                             return random.choice(i['responses'])
                 else:
                     if i['tag'] == results[0]['intent'] and i['tag'] in context[userID]:
@@ -97,6 +108,7 @@ def getResponse(sentence, context, userID='123'):
                         # set context for this intent if necessary
                         if 'context' in i:
                             context[userID] = i['context']
+                            print(context)
                             return random.choice(i['responses'])
 
             results.pop(0)
