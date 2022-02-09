@@ -51,37 +51,34 @@ def bow(sentence, words, show_details=True):
     return (np.array(bag))
 
 
-def predict_class(sentence, model, context, userID='123'):
+def predict_class(sentence, model):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
-    #print(res)
     ERROR_THRESHOLD = 0
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
     for r in results:
-        #print(classes[r[0]])
-        if context == {}:
-            context[userID] = ['問候']
-            print('setting context 1st time to greeting')
-            print(context)
-            return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
-        else:
-            if classes[r[0]] in context[userID]:
-                return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+        return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+
+    #print(return_list)
     return return_list
+
 
 
 
 # New response function (contextual)
 def getResponse(sentence, context, userID='123'):
-    results = predict_class(sentence, model, context, userID='123')
+    results = predict_class(sentence, model)
     # print(results)
     # if we have a classification then find the matching intent tag
     print("checking context before getResponse returns...")
     print(context)
+    if sentence == 'restart':
+        context[userID] = ['問候']
+        return "Restarted... please type greeting words like 'Hihi' to initiate chatbot"
     if results:
         # loop as long as there are matches to process
         while results:
@@ -116,7 +113,6 @@ def chatbot_response(text):
     # res = getResponse(ints, intents)
     ### New response (contextual)
     res = getResponse(text, context, userID='123')
-
     return res
 
 
@@ -133,19 +129,28 @@ def respond(message):
     response.message(message)
     return Response(str(response), mimetype="application/xml")
 
+from flask import Flask, render_template, request
+app.static_folder = 'static'
+
 @app.route("/")
-def hello():
-    return "Hello World!"
+def home():
+    return render_template("index.html")
+
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get('msg')
+    return str(chatbot_response(userText))
 
 @app.route('/message', methods=['POST'])
 def reply():
     message = request.form.get('Body').lower()
     # greeting
     if message:
-        if message == 'restart':
-            context = {}
         reply = chatbot_response(message)
         return respond(reply)
 
 if __name__ == '__main__':
+    #prod
     app.run(host='0.0.0.0', port=80)
+    #dev
+    #app.run()

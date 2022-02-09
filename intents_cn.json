@@ -10,7 +10,7 @@
         },
         {"tag": "調查",
          "patterns": ["有", "有時間", "我現在可以", "你問","有的" ],
-         "responses": ["謝謝，請您填寫以下這份問卷調查。請您再填寫完後寫下您的得分區間 1. 0 2. 1-2 3. >=3 (鏈接: https://hku.au1.qualtrics.com/jfe/form/SV_cRUbcwhhZ9IHq6O)", "這裏是一份問卷調查請您如實回答。請您再填寫完後寫下您的得分區間 1. 0 2. 1-2 3. >=3 (鏈接: https://hku.au1.qualtrics.com/jfe/form/SV_cRUbcwhhZ9IHq6O)"],
+         "responses": ["謝謝，請您填寫以下這份問卷調查。請您再填寫完後寫下您的得分區間 1. 0 2. 1-2 3. >=3 鏈接: https://hku.au1.qualtrics.com/jfe/form/SV_cRUbcwhhZ9IHq6O ", "這裏是一份問卷調查請您如實回答。請您再填寫完後寫下您的得分區間 1. 0 2. 1-2 3. >=3 鏈接: https://hku.au1.qualtrics.com/jfe/form/SV_cRUbcwhhZ9IHq6O "],
          "context": ["得分一","得分二", "得分三"]
         },
         {"tag": "得分一",
@@ -35,22 +35,22 @@
         },
         {"tag": "飲酒風險回答1",
          "patterns": ["肝","肝臟","肝病", "例如肝癌", "比如對肝不好", "精神失調", "damage to liver", "damage to stomach", "肝臟會受損?","塞血管", "肝硬化", "傷肝", "對肝唔好","對肝臟不太好","肝病之類", "記憶力下降", "胃潰瘍", "胃病"],
-         "responses": ["正確。九成(90%)的酒精要經過肝臟代謝，長期飲酒過量容易導致脂肪肝、肝炎、肝硬化甚至肝癌。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/aa1466048e4c89ff9eca4e983b4c494aa3881f4a/alcohol_impact.png 你看懂圖表了嗎?"],
+         "responses": ["正確。九成(90%)的酒精要經過肝臟代謝，長期飲酒過量容易導致脂肪肝、肝炎、肝硬化甚至肝癌。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。你看懂圖表了嗎? https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/aa1466048e4c89ff9eca4e983b4c494aa3881f4a/alcohol_impact.png "],
          "context":["圖表"]
         },
         {"tag": "飲酒風險回答2",
          "patterns": ["會血壓高", "三高", "中風", "心臟", "頭痛"],
-         "responses": ["正確。一項綜合研究發現，與不飲酒的男士相比，每日飲1至2杯酒、3至4杯及5杯或以上的男士患上高血壓的風險分別增加19%、51%和74%。至於女士，每日飲多過2杯酒會增加患上高血壓的風險達42%。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/aa1466048e4c89ff9eca4e983b4c494aa3881f4a/alcohol_impact.png 你看懂圖表了嗎?"],
+         "responses": ["正確。一項綜合研究發現，與不飲酒的男士相比，每日飲1至2杯酒、3至4杯及5杯或以上的男士患上高血壓的風險分別增加19%、51%和74%。至於女士，每日飲多過2杯酒會增加患上高血壓的風險達42%。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。你看懂圖表了嗎? https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/aa1466048e4c89ff9eca4e983b4c494aa3881f4a/alcohol_impact.png "],
          "context":["圖表"]
         },
          {"tag": "飲酒風險回答3",
          "patterns": ["肥"],
-         "responses": ["正確。酒精會影響肝臟的碳水化合物代謝和影響血糖水平。每克酒精約提供7千卡熱量。一杯普通啤酒或一杯紅酒或白酒，各自相等約2茶匙油的熱量。因此，不論飲何類酒精都會增加肥胖的機會，因而增加患上糖尿病的風險。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/aa1466048e4c89ff9eca4e983b4c494aa3881f4a/alcohol_impact.png 你看懂圖表了嗎?"],
+         "responses": ["正確。酒精會影響肝臟的碳水化合物代謝和影響血糖水平。每克酒精約提供7千卡熱量。一杯普通啤酒或一杯紅酒或白酒，各自相等約2茶匙油的熱量。因此，不論飲何類酒精都會增加肥胖的機會，因而增加患上糖尿病的風險。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。你看懂圖表了嗎? https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/aa1466048e4c89ff9eca4e983b4c494aa3881f4a/alcohol_impact.png "],
          "context":["圖表"]
         },
         {"tag": "飲酒風險回答4",
          "patterns": ["不完全清楚", "不清楚", "不知道", "no", "No"],
-         "responses": ["噤，您真係要聽吓啦。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/aa1466048e4c89ff9eca4e983b4c494aa3881f4a/alcohol_impact.png 你看懂圖表了嗎?"],
+         "responses": ["噤，您真係要聽吓啦。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。你看懂圖表了嗎? https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/aa1466048e4c89ff9eca4e983b4c494aa3881f4a/alcohol_impact.png "],
          "context":["圖表"]
         },
         {"tag": "圖表",
@@ -105,7 +105,7 @@
         },
         {"tag": "減少飲酒意向2",
          "patterns": ["怎麼飲得聰明一點呢", "怎樣", "really", "真的嗎", "ok", "如何飲得聰明一點呢", "明白"],
-         "responses": ["(image2 link) 一個酒精單位即紅酒(125毫升)一杯，兩個酒精單位即紅酒(125毫升)兩杯 / 兩罐啤酒(330毫升)。請您記着，即使身體健康，男士每天不應飲超過兩個酒精單位。女士每天不應飲超過一個酒精單位。酒精單位，您明白嗎?"],
+         "responses": ["https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/master/alcohol_quantity.png 一個酒精單位即紅酒(125毫升)一杯，兩個酒精單位即紅酒(125毫升)兩杯 / 兩罐啤酒(330毫升)。請您記着，即使身體健康，男士每天不應飲超過兩個酒精單位。女士每天不應飲超過一個酒精單位。酒精單位，您明白嗎?"],
          "context": ["明白酒精單位", "不明白酒精單位"]
         },
         {"tag": "明白酒精單位",
@@ -120,17 +120,17 @@
         },
         {"tag": "喜歡啤酒",
          "patterns": ["啤酒"],
-         "responses": ["份量與下圖的一樣？或是多於圖片所示?(image2 link)"],
+         "responses": ["份量與下圖的一樣？或是多於圖片所示? https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/master/alcohol_quantity.png"],
          "context": ["飲酒適量", "飲酒過量"]
         },
         {"tag": "喜歡紅酒白酒",
          "patterns": ["紅酒", "白酒"],
-         "responses": ["份量與下圖的一樣？或是多於圖片所示?(image2 link)"],
+         "responses": ["份量與下圖的一樣？或是多於圖片所示? https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/master/alcohol_quantity.png"],
          "context": ["飲酒適量", "飲酒過量"]
         },
         {"tag": "喜歡其他",
          "patterns": ["其他", "香檳", "汽酒", "仙地酒", "清酒", "荔枝酒", "烈酒", "威士忌", "杜松子酒", "伏特加", "葡萄酒", "茅台", "高粱", "雪利酒", "馬天尼酒", "砵酒", "養生酒", "蘭姆酒", "米酒", "紹興酒", "日本酒", "琴酒", "雙蒸酒", "三蒸酒"],
-         "responses": ["份量與下圖的一樣？或是多於圖片所示?(image2 link)"],
+         "responses": ["份量與下圖的一樣？或是多於圖片所示? https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/master/alcohol_quantity.png"],
          "context": ["飲酒適量", "飲酒過量"]
         },
         {"tag": "飲酒適量",
