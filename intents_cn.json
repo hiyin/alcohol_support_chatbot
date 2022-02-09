@@ -10,7 +10,7 @@
         },
         {"tag": "調查",
          "patterns": ["有", "有時間", "我現在可以", "你問","有的" ],
-         "responses": ["謝謝，請您填寫以下這份問卷調查。請您再填寫完後寫下您的得分區間 1. 0 2. 1-2 3. >=3 (survey link: https://hku.au1.qualtrics.com/jfe/form/SV_cRUbcwhhZ9IHq6O)", "這裏是一份問卷調查請您如實回答。請您再填寫完後寫下您的得分區間 1. 0  2. 1-2  3. >=3"],
+         "responses": ["謝謝，請您填寫以下這份問卷調查。請您再填寫完後寫下您的得分區間 1. 0 2. 1-2 3. >=3 (鏈接: https://hku.au1.qualtrics.com/jfe/form/SV_cRUbcwhhZ9IHq6O)", "這裏是一份問卷調查請您如實回答。請您再填寫完後寫下您的得分區間 1. 0 2. 1-2 3. >=3 (鏈接: https://hku.au1.qualtrics.com/jfe/form/SV_cRUbcwhhZ9IHq6O)"],
          "context": ["得分一","得分二", "得分三"]
         },
         {"tag": "得分一",
@@ -35,7 +35,7 @@
         },
         {"tag": "飲酒風險回答1",
          "patterns": ["肝","肝臟","肝病", "例如肝癌", "比如對肝不好", "精神失調", "damage to liver", "damage to stomach", "肝臟會受損?","塞血管", "肝硬化", "傷肝", "對肝唔好","對肝臟不太好","肝病之類", "記憶力下降", "胃潰瘍", "胃病"],
-         "responses": ["正確。九成(90%)的酒精要經過肝臟代謝，長期飲酒過量容易導致脂肪肝、肝炎、肝硬化甚至肝癌。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。(https://www.dropbox.com/s/cjitj6nkjosm2i3/alcohol_impact.png?raw=1) 你看懂圖表了嗎?"],
+         "responses": ["正確。九成(90%)的酒精要經過肝臟代謝，長期飲酒過量容易導致脂肪肝、肝炎、肝硬化甚至肝癌。有人可能告訴您每日飲一至兩杯酒對心臟有益。但是，酒精是已證實的致癌物，與煙草、石棉和電離輻射屬同一類別。下圖顯示每日一杯酒實際對你健康構成的影響。https://raw.githubusercontent.com/hiyin/alcohol_support_chatbot/aa1466048e4c89ff9eca4e983b4c494aa3881f4a/alcohol_impact.png 你看懂圖表了嗎?"],
          "context":["圖表"]
         },
         {"tag": "飲酒風險回答2",
