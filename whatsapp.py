@@ -63,14 +63,12 @@ def predict_class(sentence, model, context, userID='123'):
     for r in results:
         #print(classes[r[0]])
         if context == {}:
-            #print('hihi')
             context[userID] = ['問候']
-            print(context[userID])
+            print('setting context 1st time to greeting')
+            print(context)
             return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
         else:
-            #print('yesyes')
             if classes[r[0]] in context[userID]:
-                context[userID] = [classes[r[0]]]
                 return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
     return return_list
 
@@ -81,7 +79,7 @@ def getResponse(sentence, context, userID='123'):
     results = predict_class(sentence, model, context, userID='123')
     # print(results)
     # if we have a classification then find the matching intent tag
-    print("checking context ...")
+    print("checking context before getResponse returns...")
     print(context)
     if results:
         # loop as long as there are matches to process
@@ -93,7 +91,7 @@ def getResponse(sentence, context, userID='123'):
                 # find a tag matching the first result
                 if not context:
                     if i['tag'] == results[0]['intent']:
-                        print("matching ...")
+                        print("matching if context is none...")
                         # set context for this intent if necessary
                         if 'context' in i:
                             context[userID] = i['context']
@@ -101,10 +99,7 @@ def getResponse(sentence, context, userID='123'):
                             return random.choice(i['responses'])
                 else:
                     if i['tag'] == results[0]['intent'] and i['tag'] in context[userID]:
-                        print("matching ...")
-                        print(i['tag'])
-                        print(results[0]['intent'])
-                        print(context)
+                        print("matching if there is existing context ...")
                         # set context for this intent if necessary
                         if 'context' in i:
                             context[userID] = i['context']
